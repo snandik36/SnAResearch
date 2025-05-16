@@ -5,6 +5,7 @@
 #==========================================================================================#
 # Attaching Libraries
 #==========================================================================================#
+
 install.packages("foreign")  
 install.packages("devtools")
 install.packages("tidyverse")
@@ -26,5 +27,12 @@ library(MEPS)
 #==========================================================================================#
 # Load MEPS Dataset and save locally as .RData files for faster future loading
 #==========================================================================================#
+
 FYCD2022 = read_excel("/Users/surbhi/Desktop/OMS-I/SnAResearch/DataFilesMEPS/h243FYCD.xlsx")
 save(FYCD2022, file = "/Users/surbhi/Desktop/OMS-I/SnAResearch/DataFilesMEPS/FYCD2022.Rdata")
+
+#==========================================================================================#
+# Using survey library to analyze MEPS data and ensure unbiased estimates
+#==========================================================================================#
+
+options(survey.lonely.psu='adjust')
